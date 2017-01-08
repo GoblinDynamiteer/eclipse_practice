@@ -87,6 +87,27 @@ void moveBalls(ballsGame * game){
 			break;
 		}
 
+		/*	 Check game window collision	*/
+		if(*posx + BALL_SIZE/2 >= WIN_WIDTH){
+			*velx *= -1;
+			*posx = WIN_WIDTH - BALL_SIZE;
+		}
+
+		if(*posx - BALL_SIZE/2 <= 0){
+			*velx *= -1;
+			*posx = 0 + BALL_SIZE;
+		}
+
+		if(*posy + BALL_SIZE/2 >= WIN_HEIGHT){
+			*vely *= -1;
+			*posy = WIN_HEIGHT - BALL_SIZE;
+		}
+
+		if(*posy - BALL_SIZE/2 <= 0){
+			*vely *= -1;
+			*posy = 0 + BALL_SIZE;
+		}
+
 		/*	 Move balls in x and y	*/
 		game->balls[i]->rect.x += *velx;
 		game->balls[i]->rect.y += *vely;
