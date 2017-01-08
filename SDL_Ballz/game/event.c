@@ -109,8 +109,8 @@ void moveBalls(ballsGame * game){
 		}
 
 		/*	 Move balls in x and y	*/
-		game->balls[i]->rect.x += *velx;
-		game->balls[i]->rect.y += *vely;
+		*posx += *velx;
+		*posy += *vely;
 
 		/*	 Accelerate balls!	*/
 		if(fabs(*velx) < MAXSPEED ){
