@@ -31,6 +31,8 @@ bool processEvent(ballsGame * game){
 		}
 	}
 
+	moveBalls(game);
+
 	return 1;
 }
 
@@ -73,3 +75,27 @@ float getRandomDirection(void){
 }
 
 
+void moveBalls(ballsGame * game){
+
+	/*	 Move balls	*/
+	for(int i = 0; i< MAX_BALLS; i++){
+		float *velx = &game->balls[i]->speed.x;
+		float *vely = &game->balls[i]->speed.y;
+		if(!game->balls[i]){
+			break;
+		}
+
+		/*	 Move balls in x and y	*/
+		game->balls[i]->rect.x += *velx;
+		game->balls[i]->rect.y += *vely;
+
+		/*	 Accelerate balls!	*/
+		if(fabs(*velx) < MAXSPEED ){
+			*velx = *velx > 0 ? *velx + ACC : *velx - ACC;
+		}
+		if(fabs(*vely) < MAXSPEED ){
+			*vely = *vely > 0 ? *vely + ACC : *vely - ACC;
+		}
+
+	}
+}

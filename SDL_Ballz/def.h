@@ -13,6 +13,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "SDL.h"
 #include "SDL_image.h"
 
@@ -30,8 +31,9 @@
 /*	 Ball art size. Height == Width	*/
 #define BALL_SIZE 50
 
-/*	 Default ball movement speed	*/
-#define SPEED 2
+/*	 Ball movement speed & acceleration	*/
+#define MAXSPEED 10
+#define ACC 0.04
 
 /*	 Struct definitions	*/
 typedef struct velocity{
@@ -58,6 +60,7 @@ bool loadGame(ballsGame * game);
 
 /*	 event.c	*/
 bool processEvent(ballsGame * game);
+void moveBalls(ballsGame * game);
 float getRandomDirection(void);
 bool addBall(ballsGame * game, int x, int y);
 
