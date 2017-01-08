@@ -30,10 +30,32 @@ bool renderGame(ballsGame * game){
 			);
 	};
 
+void renderCursor(ballsGame * game){
+	/*	 Draw mouse cursor	*/
+	SDL_Rect cursorRect;
 
 	/*	 Presents render	*/
 	SDL_RenderPresent(game->renderer);
 	return 1;
+	/*	 Gets width and height from texture	*/
+	SDL_QueryTexture(
+		game->cursorArt,
+		NULL,
+		NULL,
+		&cursorRect.w,
+		&cursorRect.h
+	);
+
+	cursorRect.x = game->cursor.x - cursorRect.w / 2;
+	cursorRect.y = game->cursor.y - cursorRect.h / 2;
+
+
+	SDL_RenderCopy(
+		game->renderer,
+		game->cursorArt,
+		NULL,
+		&cursorRect
+	);
 }
 ;
 

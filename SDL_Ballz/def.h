@@ -78,6 +78,7 @@ bool addBall(ballsGame * game, int x, int y);
 
 /*	 draw.c	*/
 bool renderGame(ballsGame * game);
+void renderCursor(ballsGame * game);
 
 
 #endif /* DEF_H_ */
