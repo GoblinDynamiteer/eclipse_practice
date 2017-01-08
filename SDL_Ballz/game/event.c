@@ -50,3 +50,19 @@ bool addBall(ballsGame * game, int x, int y){
 	game->balls[index]->rect.h = BALL_SIZE;
 	return 1;
 }
+
+
+float getRandomDirection(void){
+	int negPos = rand() % 10;
+	float direction = (float)(rand() % 5);
+	if(negPos > 5){
+		printf("RandDir: %g\n", 0.0 + direction);
+		return 0.0 + direction;
+	}
+	else{
+		printf("RandDir: %g\n", 0.0 - direction);
+		return 0.0 - direction;
+	}
+}
+
+

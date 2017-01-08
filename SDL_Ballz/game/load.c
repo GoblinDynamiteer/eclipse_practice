@@ -9,6 +9,10 @@
 #include "..\def.h"
 
 bool loadGame(ballsGame * game){
+
+	/*	 Random seed	*/
+	srand((int)time(NULL));
+
 	/*	 Set starting ball array to NULL	*/
 	for(int i = 0; i< MAX_BALLS; i++){
 		game->balls[i] = NULL;
