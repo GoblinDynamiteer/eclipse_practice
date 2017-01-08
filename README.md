@@ -6,7 +6,7 @@
 
 As an alternative to NotePad++ text editor, which has been my main program for writing code.  
 
-## Eclipse project:  
+## Eclipse projects:  
 **CFB_Sodku**  
 Remake of programming excercise from book *C Från Början*.  Checks if a sudoku "array" is filled out correctly.  
 
