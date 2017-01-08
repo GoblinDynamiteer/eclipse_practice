@@ -44,6 +44,10 @@ typedef struct velocity{
 	float x, y;
 }velocity;
 
+typedef struct pos{
+	int x, y;
+}position;
+
 typedef struct ball{
 	short color;
 	SDL_Rect rect;
