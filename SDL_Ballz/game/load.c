@@ -36,5 +36,9 @@ bool loadGame(ballsGame * game){
 		game->ballArt[i] = SDL_CreateTextureFromSurface(game->renderer, surface);
 	}
 
+	/*	 Load cursor texture and set rectangle	*/
+	surface = IMG_Load("art/cursor.png");
+	game->cursorArt = SDL_CreateTextureFromSurface(game->renderer, surface);
+
 	return 1;
 }
