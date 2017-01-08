@@ -81,6 +81,8 @@ void moveBalls(ballsGame * game){
 	for(int i = 0; i< MAX_BALLS; i++){
 		float *velx = &game->balls[i]->speed.x;
 		float *vely = &game->balls[i]->speed.y;
+		int *posx = &game->balls[i]->rect.x;
+		int *posy = &game->balls[i]->rect.y;
 		if(!game->balls[i]){
 			break;
 		}
