@@ -56,6 +56,9 @@ bool processEvent(ballsGame * game){
 			case MAGNET:
 				huntCursor(game, i);
 				break;
+			case REPEL:
+				avoidCursor(game, i);
+				break;
 		}
 		rotateBall(game, i);
 		accelBall(game, i);
@@ -90,14 +93,14 @@ float getRandomDirection(void){
 
 void cycleGameMode(ballsGame * game, bool upDown){
 	if(upDown){
-		if(game->mode == MAGNET){
+		if(game->mode == REPEL){
 			game->mode = NORMAL;
 		}
 		else game->mode++;
 	}
 	else{
 		if(game->mode == NORMAL){
-			game->mode = MAGNET;
+			game->mode = REPEL;
 		}
 		else game->mode--;
 	}

@@ -39,7 +39,7 @@
 #define REPELSTR 500
 
 /*	 Game modes // Cursors	*/
-enum {NORMAL, MAGNET};
+enum {NORMAL, MAGNET, REPEL};
 
 /*	 Ball colors, for texture array index	*/
 enum {RED, YELLOW, BLUE, GREEN, PURPLE};
@@ -64,7 +64,7 @@ typedef struct ballsGame{
 	SDL_Window * window;
 	SDL_Renderer * renderer;
 	ball * balls[MAX_BALLS];
-	SDL_Texture * cursorArt[2];
+	SDL_Texture * cursorArt[3];
 	position cursor;
 	double cursorAngle;
 	short mode;
