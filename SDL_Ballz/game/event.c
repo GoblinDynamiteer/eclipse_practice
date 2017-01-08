@@ -31,6 +31,10 @@ bool processEvent(ballsGame * game){
 		}
 	}
 
+	/*	 Gets mouse cursor position	*/
+	SDL_GetMouseState(&game->cursor.x, &game->cursor.y);
+
+
 	/*	 Moves and rotate balls	*/
 	moveBalls(game);
 
