@@ -43,6 +43,7 @@ typedef struct velocity{
 typedef struct ball{
 	SDL_Rect rect;
 	velocity speed;
+	double angle;
 }ball;
 
 typedef struct ballsGame{

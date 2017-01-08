@@ -31,6 +31,7 @@ bool processEvent(ballsGame * game){
 		}
 	}
 
+	/*	 Moves and rotate balls	*/
 	moveBalls(game);
 
 	return 1;
@@ -56,6 +57,9 @@ bool addBall(ballsGame * game, int x, int y){
 	/*	 Set random ball speed	*/
 	game->balls[index]->speed.x = getRandomDirection();
 	game->balls[index]->speed.y = getRandomDirection();
+
+	/*	 Set balls starting angle, for rotation	*/
+	game->balls[index]->angle = 0.0;
 
 	return 1;
 }
@@ -118,6 +122,11 @@ void moveBalls(ballsGame * game){
 		}
 		if(fabs(*vely) < MAXSPEED ){
 			*vely = *vely > 0 ? *vely + ACC : *vely - ACC;
+		}
+
+		game->balls[i]->angle += 1.6f;
+		if(game->balls[i]->angle >= 360){
+			game->balls[i]->angle = 0.0;
 		}
 
 	}

@@ -17,7 +17,15 @@ bool renderGame(ballsGame * game){
 		if(!game->balls[i]){
 			break;
 		}
-		SDL_RenderCopy(game->renderer, game->ballArt, NULL, &game->balls[i]->rect);
+		SDL_RenderCopyEx(
+				game->renderer,
+				game->ballArt,
+				NULL,
+				&game->balls[i]->rect,
+				game->balls[i]->angle,
+				NULL,
+				SDL_FLIP_NONE
+			);
 	};
 
 
