@@ -44,6 +44,7 @@ bool loadGame(ballsGame * game){
 	SDL_FreeSurface(surface);
 
 	game->cursorAngle = 0.0;
+	game->mode = NORMAL;
 
 	return 1;
 }

@@ -36,6 +36,9 @@
 #define MAXSPEED 15.0
 #define ACC 0.001
 
+/*	 Game modes	*/
+enum {NORMAL, MAGNET};
+
 /*	 Ball colors, for texture array index	*/
 enum {RED, YELLOW, BLUE, GREEN, PURPLE};
 
@@ -62,6 +65,7 @@ typedef struct ballsGame{
 	SDL_Texture * cursorArt;
 	position cursor;
 	double cursorAngle;
+	short mode;
 	/*	 Flexible struct member needs to be last.	*/
 	SDL_Texture * ballArt[];
 }ballsGame;
@@ -81,6 +85,7 @@ float getRandomDirection(void);
 bool addBall(ballsGame * game, int x, int y);
 void huntCursor(ballsGame * game, int i);
 void borderCheck(ballsGame * game, int i);
+void cycleGameMode(ballsGame * game, bool upDown);
 
 /*	 draw.c	*/
 bool renderGame(ballsGame * game);

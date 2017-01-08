@@ -193,3 +193,17 @@ void moveBall(ballsGame * game, int i){
 	*posy += *vely;
 }
 
+void cycleGameMode(ballsGame * game, bool upDown){
+	if(upDown){
+		if(game->mode == MAGNET){
+			game->mode = NORMAL;
+		}
+		else game->mode++;
+	}
+	else{
+		if(game->mode == NORMAL){
+			game->mode = MAGNET;
+		}
+		else game->mode--;
+	}
+}
