@@ -12,6 +12,9 @@ int main(int argc, char *argv[]){
 	/*	 Init SDL	*/
     SDL_Init(SDL_INIT_EVERYTHING);
 
+    /*	 Hide cursor	*/
+    SDL_ShowCursor(SDL_DISABLE);
+
     /*	 Declare window and renderer	*/
     SDL_Window * window;
     SDL_Renderer * renderer;
