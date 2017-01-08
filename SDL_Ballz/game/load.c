@@ -38,13 +38,14 @@ bool loadGame(ballsGame * game){
 	}
 
 	/*	Load cursor texture and set rectangle	*/
-	/*	index: NORMAL, MAGNET */
+	/*	index: NORMAL, MAGNET, REPEL */
 	char * imageFilesCursor[] = {
 			"art/cursor.png",
 			"art/cursor_magnet.png",
+			"art/cursor_rep.png"
 	};
 
-	for(int i = 0; i<= MAGNET; i++){
+	for(int i = 0; i<= REPEL; i++){
 		surface = IMG_Load(imageFilesCursor[i]);
 		game->cursorArt[i] = SDL_CreateTextureFromSurface(game->renderer, surface);
 	}
