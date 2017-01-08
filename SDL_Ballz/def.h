@@ -24,6 +24,7 @@
 
 /*	 Flags for window	*/
 #define WIN_FLAGS 0//SDL_WINDOW_FULLSCREEN
+#define REN_FLAGS SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
 
 /*	 Max balls on screen	*/
 #define MAX_BALLS 500
