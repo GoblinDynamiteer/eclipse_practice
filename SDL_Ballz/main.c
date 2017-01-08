@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[]){
 	/*	 Init SDL	*/
-    SDL_Init( SDL_INIT_EVERYTHING );
+    SDL_Init(SDL_INIT_EVERYTHING);
 
     /*	 Declare window and renderer	*/
     SDL_Window * window;

@@ -12,6 +12,7 @@ bool renderGame(ballsGame * game){
 	SDL_SetRenderDrawColor(game->renderer, 102, 204, 204, 255);
 	SDL_RenderClear(game->renderer);
 
+
 	/*	 Draws balls	*/
 	for(int i = 0; i< MAX_BALLS; i++){
 		if(!game->balls[i]){

@@ -34,8 +34,10 @@ bool processEvent(ballsGame * game){
 	/*	 Moves and rotate balls	*/
 	moveBalls(game);
 
+
 	return 1;
 }
+
 
 bool addBall(ballsGame * game, int x, int y){
 	int index = 0;
@@ -90,6 +92,8 @@ void moveBalls(ballsGame * game){
 		float *vely = &game->balls[i]->speed.y;
 		int *posx = &game->balls[i]->rect.x;
 		int *posy = &game->balls[i]->rect.y;
+
+		/*	 Break if NULL pointer	*/
 		if(!game->balls[i]){
 			break;
 		}
