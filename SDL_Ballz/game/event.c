@@ -104,9 +104,9 @@ void moveBalls(ballsGame * game){
 			*posx = WIN_WIDTH - BALL_SIZE;
 		}
 
-		if(*posx - BALL_SIZE/2 <= 0){
+		if(*posx - BALL_SIZE/2 < 0){
 			*velx *= -1;
-			*posx = 0 + BALL_SIZE;
+			*posx = BALL_SIZE/2;
 		}
 
 		if(*posy + BALL_SIZE/2 >= WIN_HEIGHT){
@@ -114,9 +114,9 @@ void moveBalls(ballsGame * game){
 			*posy = WIN_HEIGHT - BALL_SIZE;
 		}
 
-		if(*posy - BALL_SIZE/2 <= 0){
+		if(*posy - BALL_SIZE/2 < 0){
 			*vely *= -1;
-			*posy = 0 + BALL_SIZE;
+			*posy = BALL_SIZE/2;
 		}
 
 		/*	 Move balls in x and y	*/
