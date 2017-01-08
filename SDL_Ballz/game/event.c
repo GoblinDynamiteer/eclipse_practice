@@ -8,6 +8,12 @@ bool processEvent(ballsGame * game){
 	while(SDL_PollEvent(&event)){
 		Uint32 type = event.type;
 		switch(type){
+			/*	 Close button is pressed	*/
+			case SDL_WINDOWEVENT:
+				if(event.window.event == SDL_WINDOWEVENT_CLOSE){
+					return 0;
+				}
+				break;
 			/*	 A key has been pressed	*/
 			case SDL_KEYDOWN:
 				if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE){
