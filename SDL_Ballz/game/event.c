@@ -41,7 +41,10 @@ bool processEvent(ballsGame * game){
 	}
 
 	/*	 Gets mouse cursor position	*/
-	SDL_GetMouseState(&game->cursor.x, &game->cursor.y);
+	Uint32 mouseState = SDL_GetMouseState(&game->cursor.x, &game->cursor.y);
+	if(mouseState & SDL_BUTTON(SDL_BUTTON_RIGHT)){
+		addBall(game, game->cursor.x, game->cursor.y);
+	}
 
 	/*	 Moves and rotate balls	*/
 	for(int i = 0; i< MAX_BALLS; i++){
