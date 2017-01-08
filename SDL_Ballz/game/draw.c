@@ -12,6 +12,15 @@ bool renderGame(ballsGame * game){
 	SDL_SetRenderDrawColor(game->renderer, 102, 204, 204, 255);
 	SDL_RenderClear(game->renderer);
 
+	/*	 Render balls and mouse cursor, order matters	*/
+	renderBalls(game);
+	renderCursor(game);
+
+	/*	 Presents render	*/
+	SDL_RenderPresent(game->renderer);
+	return 1;
+}
+
 
 void renderBalls(ballsGame * game){
 	/*	 Draws balls	*/
@@ -21,15 +30,6 @@ void renderBalls(ballsGame * game){
 		}
 		short color = game->balls[i]->color;
 		SDL_RenderCopyEx(
-				game->renderer,
-				game->ballArt[color],
-				NULL,
-				&game->balls[i]->rect,
-				game->balls[i]->angle,
-				NULL,
-				SDL_FLIP_NONE
-			);
-	};
 			game->renderer,
 			game->ballArt[color],
 			NULL,
@@ -45,9 +45,6 @@ void renderCursor(ballsGame * game){
 	/*	 Draw mouse cursor	*/
 	SDL_Rect cursorRect;
 
-	/*	 Presents render	*/
-	SDL_RenderPresent(game->renderer);
-	return 1;
 	/*	 Gets width and height from texture	*/
 	SDL_QueryTexture(
 		game->cursorArt,
@@ -68,5 +65,4 @@ void renderCursor(ballsGame * game){
 		&cursorRect
 	);
 }
-;
 
