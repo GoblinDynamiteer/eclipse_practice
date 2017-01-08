@@ -116,10 +116,11 @@ void huntCursor(ballsGame * game, int i){
 }
 
 
-
+/*	 Generates a random direction (and speed) for new balls	*/
 float getRandomDirection(void){
 	int negPos = rand() % 10;
-	float direction = (float)(rand() % 5) + (float)(rand() % 10) / 10.0f;
+	float direction = (float)(rand() % 5)
+			+ (float)(rand() % 10) / 10.0f;
 	if(negPos > 5){
 		return 0.4 + direction;
 	}
