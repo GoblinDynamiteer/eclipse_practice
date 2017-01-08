@@ -13,6 +13,7 @@ bool renderGame(ballsGame * game){
 	SDL_RenderClear(game->renderer);
 
 
+void renderBalls(ballsGame * game){
 	/*	 Draws balls	*/
 	for(int i = 0; i< MAX_BALLS; i++){
 		if(!game->balls[i]){
@@ -29,6 +30,16 @@ bool renderGame(ballsGame * game){
 				SDL_FLIP_NONE
 			);
 	};
+			game->renderer,
+			game->ballArt[color],
+			NULL,
+			&game->balls[i]->rect,
+			game->balls[i]->angle,
+			NULL,
+			SDL_FLIP_NONE
+		);
+	}
+}
 
 void renderCursor(ballsGame * game){
 	/*	 Draw mouse cursor	*/
