@@ -128,11 +128,25 @@ float getRandomDirection(void){
 void moveBalls(ballsGame * game){
 
 	/*	 Move balls	*/
+void accelBalls(ballsGame * game){
 	for(int i = 0; i< MAX_BALLS; i++){
+		/*	 Break if NULL pointer	*/
+		if(!game->balls[i]){
+			break;
+		}
+		/*	 Pointers to speed for ball */
 		float *velx = &game->balls[i]->speed.x;
 		float *vely = &game->balls[i]->speed.y;
-		int *posx = &game->balls[i]->rect.x;
-		int *posy = &game->balls[i]->rect.y;
+
+		/*	 Accelerate balls!	*/
+		if(fabs(*velx) < MAXSPEED ){
+			*velx = *velx > 0 ? *velx + ACC : *velx - ACC;
+		}
+		if(fabs(*vely) < MAXSPEED ){
+			*vely = *vely > 0 ? *vely + ACC : *vely - ACC;
+		}
+	}
+}
 
 		/*	 Break if NULL pointer	*/
 		if(!game->balls[i]){
