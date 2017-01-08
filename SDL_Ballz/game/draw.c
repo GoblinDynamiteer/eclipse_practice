@@ -47,7 +47,7 @@ void renderCursor(ballsGame * game){
 
 	/*	 Gets width and height from texture	*/
 	SDL_QueryTexture(
-		game->cursorArt,
+		game->cursorArt[game->mode],
 		NULL,
 		NULL,
 		&cursorRect.w,
@@ -60,7 +60,7 @@ void renderCursor(ballsGame * game){
 
 	SDL_RenderCopyEx(
 		game->renderer,
-		game->cursorArt,
+		game->cursorArt[game->mode],
 		NULL,
 		&cursorRect,
 		game->cursorAngle,
