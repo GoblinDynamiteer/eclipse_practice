@@ -16,18 +16,23 @@ int main(int argc, char *argv[]){
     SDL_Window * window;
     SDL_Renderer * renderer;
 
-    /*	 Create the window and renderer	*/
+    /*	 Create window	*/
+	window = SDL_CreateWindow(
+		"Ballz!",
+		SDL_WINDOWPOS_UNDEFINED,
+		SDL_WINDOWPOS_UNDEFINED,
+		WIN_WIDTH,
+		WIN_HEIGHT,
+		WIN_FLAGS
+	);
 
-    if(SDL_CreateWindowAndRenderer(
-    		WIN_WIDTH,
-			WIN_HEIGHT,
-			WIN_FLAGS,
-			&window,
-			&renderer)
-    	){
-    	printf("Could not create window/renderer!\n"
-    			"Error: %s\n", SDL_GetError());
-    };
+    /*	 Create renderer	*/
+	renderer = SDL_CreateRenderer(
+			window,
+			-1,
+			REN_FLAGS
+	);
+
 
     /*	 Declare struct ballsGame	*/
     ballsGame ballsGame;
