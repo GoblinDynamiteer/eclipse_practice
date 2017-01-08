@@ -43,11 +43,18 @@ bool addBall(ballsGame * game, int x, int y){
 	}
 
 	printf("Ball index: %d\n", index);
+
+	/*	 Set ball x, y, width, height	*/
 	game->balls[index] = malloc(sizeof(ball));
 	game->balls[index]->rect.x = x - (BALL_SIZE / 2);
 	game->balls[index]->rect.y = y - (BALL_SIZE / 2);
 	game->balls[index]->rect.w = BALL_SIZE;
 	game->balls[index]->rect.h = BALL_SIZE;
+
+	/*	 Set random ball speed	*/
+	game->balls[index]->speed.x = getRandomDirection();
+	game->balls[index]->speed.y = getRandomDirection();
+
 	return 1;
 }
 
