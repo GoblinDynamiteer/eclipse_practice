@@ -17,9 +17,10 @@ bool renderGame(ballsGame * game){
 		if(!game->balls[i]){
 			break;
 		}
+		short color = game->balls[i]->color;
 		SDL_RenderCopyEx(
 				game->renderer,
-				game->ballArt,
+				game->ballArt[color],
 				NULL,
 				&game->balls[i]->rect,
 				game->balls[i]->angle,

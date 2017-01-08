@@ -36,12 +36,16 @@
 #define MAXSPEED 10
 #define ACC 0.04
 
+/*	 Ball colors, for texture array index	*/
+enum {RED, YELLOW, BLUE, GREEN, PURPLE};
+
 /*	 Struct definitions	*/
 typedef struct velocity{
 	float x, y;
 }velocity;
 
 typedef struct ball{
+	short color;
 	SDL_Rect rect;
 	velocity speed;
 	double angle;
@@ -51,7 +55,7 @@ typedef struct ballsGame{
 	SDL_Window * window;
 	SDL_Renderer * renderer;
 	ball * balls[MAX_BALLS];
-	SDL_Texture * ballArt;
+	SDL_Texture * ballArt[];
 }ballsGame;
 
 

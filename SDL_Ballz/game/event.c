@@ -61,6 +61,9 @@ bool addBall(ballsGame * game, int x, int y){
 	/*	 Set balls starting angle, for rotation	*/
 	game->balls[index]->angle = 0.0;
 
+	/*	 Set ball color	*/
+	game->balls[index]->color = rand() % (PURPLE + 1);
+
 	return 1;
 }
 
