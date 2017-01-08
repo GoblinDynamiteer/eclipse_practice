@@ -42,23 +42,28 @@ bool processEvent(ballsGame * game){
 	/*	 Gets mouse cursor position	*/
 	SDL_GetMouseState(&game->cursor.x, &game->cursor.y);
 
-
 	/*	 Moves and rotate balls	*/
 	for(int i = 0; i< MAX_BALLS; i++){
 		/*	 Break if NULL pointer	*/
 		if(!game->balls[i]){
 			break;
 		}
-		//moveBalls(game);
+		switch(game->mode){
+			case NORMAL:
+				moveBall(game, i);
+				break;
+			case MAGNET:
+				huntCursor(game, i);
+				break;
+		}
 		rotateBall(game, i);
 		accelBall(game, i);
 		borderCheck(game, i);
-		huntCursor(game, i);
 	}
-
 
 	return 1;
 }
+
 
 
 bool addBall(ballsGame * game, int x, int y){
