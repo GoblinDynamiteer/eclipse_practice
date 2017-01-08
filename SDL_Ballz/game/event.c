@@ -62,31 +62,31 @@ bool processEvent(ballsGame * game){
 
 
 bool addBall(ballsGame * game, int x, int y){
-	int index = 0;
+	int i = 0;
 
 	/*	 Finds next free ball	*/
-	while(game->balls[index] != NULL && index < MAX_BALLS){
-		index++;
+	while(game->balls[i] != NULL && i < MAX_BALLS){
+		i++;
 	}
 
-	printf("Ball index: %d\n", index);
+	printf("Ball index: %d\n", i);
 
 	/*	 Set ball x, y, width, height	*/
-	game->balls[index] = malloc(sizeof(ball));
-	game->balls[index]->rect.x = x - (BALL_SIZE / 2);
-	game->balls[index]->rect.y = y - (BALL_SIZE / 2);
-	game->balls[index]->rect.w = BALL_SIZE;
-	game->balls[index]->rect.h = BALL_SIZE;
+	game->balls[i] = malloc(sizeof(ball));
+	game->balls[i]->rect.x = x - (BALL_SIZE / 2);
+	game->balls[i]->rect.y = y - (BALL_SIZE / 2);
+	game->balls[i]->rect.w = BALL_SIZE;
+	game->balls[i]->rect.h = BALL_SIZE;
 
 	/*	 Set random ball speed	*/
-	game->balls[index]->speed.x = getRandomDirection();
-	game->balls[index]->speed.y = getRandomDirection();
+	game->balls[i]->speed.x = getRandomDirection();
+	game->balls[i]->speed.y = getRandomDirection();
 
 	/*	 Set balls starting angle, for rotation	*/
-	game->balls[index]->angle = 0.0;
+	game->balls[i]->angle = 0.0;
 
 	/*	 Set ball color	*/
-	game->balls[index]->color = rand() % (PURPLE + 1);
+	game->balls[i]->color = rand() % (PURPLE + 1);
 
 	return 1;
 }
