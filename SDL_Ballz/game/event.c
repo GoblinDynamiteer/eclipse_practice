@@ -148,10 +148,18 @@ void accelBalls(ballsGame * game){
 	}
 }
 
+void borderCheck(ballsGame * game){
+	for(int i = 0; i< MAX_BALLS; i++){
 		/*	 Break if NULL pointer	*/
 		if(!game->balls[i]){
 			break;
 		}
+
+		/*	 Pointers to x, y and speed	for ball */
+		float *velx = &game->balls[i]->speed.x;
+		float *vely = &game->balls[i]->speed.y;
+		int *posx = &game->balls[i]->rect.x;
+		int *posy = &game->balls[i]->rect.y;
 
 		/*	 Check game window collision	*/
 		if(*posx + BALL_SIZE/2 >= WIN_WIDTH){
@@ -173,6 +181,8 @@ void accelBalls(ballsGame * game){
 			*vely *= -1;
 			*posy = BALL_SIZE/2;
 		}
+	}
+}
 
 		/*	 Move balls in x and y	*/
 		*posx += *velx;
