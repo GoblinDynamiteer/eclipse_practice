@@ -117,12 +117,10 @@ float getRandomDirection(void){
 	int negPos = rand() % 10;
 	float direction = (float)(rand() % 5) + (float)(rand() % 10) / 10.0f;
 	if(negPos > 5){
-		printf("RandDir: %g\n", 0.0 + direction);
-		return 0.0 + direction;
+		return 0.4 + direction;
 	}
 	else{
-		printf("RandDir: %g\n", 0.0 - direction);
-		return 0.0 - direction;
+		return 0.4 - direction;
 	}
 }
 
