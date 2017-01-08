@@ -33,7 +33,7 @@
 #define BALL_SIZE 50
 
 /*	 Ball movement speed & acceleration	*/
-#define MAXSPEED 10
+#define MAXSPEED 8
 #define ACC 0.04
 
 /*	 Ball colors, for texture array index	*/
