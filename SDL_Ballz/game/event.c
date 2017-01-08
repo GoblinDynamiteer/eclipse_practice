@@ -187,6 +187,8 @@ void borderCheck(ballsGame * game){
 		/*	 Move balls in x and y	*/
 		*posx += *velx;
 		*posy += *vely;
+void rotateBalls(ballsGame * game){
+	game->balls[i]->angle += 1.6f;
 
 		/*	 Accelerate balls!	*/
 		if(fabs(*velx) < MAXSPEED ){
@@ -195,6 +197,10 @@ void borderCheck(ballsGame * game){
 		if(fabs(*vely) < MAXSPEED ){
 			*vely = *vely > 0 ? *vely + ACC : *vely - ACC;
 		}
+	if(game->balls[i]->angle >= 360){
+	game->balls[i]->angle = 0.0;
+	}
+}
 
 		game->balls[i]->angle += 1.6f;
 		if(game->balls[i]->angle >= 360){

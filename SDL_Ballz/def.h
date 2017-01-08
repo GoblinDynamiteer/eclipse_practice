@@ -75,6 +75,7 @@ bool loadGame(ballsGame * game);
 /*	 event.c	*/
 bool processEvent(ballsGame * game);
 void moveBalls(ballsGame * game);
+void rotateBalls(ballsGame * game);
 void accelBalls(ballsGame * game);
 float getRandomDirection(void);
 bool addBall(ballsGame * game, int x, int y);
