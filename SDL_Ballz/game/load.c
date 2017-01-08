@@ -40,5 +40,8 @@ bool loadGame(ballsGame * game){
 	surface = IMG_Load("art/cursor.png");
 	game->cursorArt = SDL_CreateTextureFromSurface(game->renderer, surface);
 
+	/*	 Free surfaces	*/
+	SDL_FreeSurface(surface);
+
 	return 1;
 }
