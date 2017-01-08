@@ -44,11 +44,18 @@ bool processEvent(ballsGame * game){
 
 
 	/*	 Moves and rotate balls	*/
-	//moveBalls(game);
-	rotateBalls(game);
-	accelBalls(game);
-	borderCheck(game);
-	huntCursor(game);
+	for(int i = 0; i< MAX_BALLS; i++){
+		/*	 Break if NULL pointer	*/
+		if(!game->balls[i]){
+			break;
+		}
+		//moveBalls(game);
+		rotateBall(game, i);
+		accelBall(game, i);
+		borderCheck(game, i);
+		huntCursor(game, i);
+	}
+
 
 	return 1;
 }
@@ -84,36 +91,30 @@ bool addBall(ballsGame * game, int x, int y){
 	return 1;
 }
 
-void huntCursor(ballsGame * game){
-	for(int i = 0; i< MAX_BALLS; i++){
-		/*	 Break if NULL pointer	*/
-		if(!game->balls[i]){
-			break;
-		}
+void huntCursor(ballsGame * game, int i){
+	/*	 Pointers to x, y and speed	for ball */
+	int *posx = &game->balls[i]->rect.x;
+	int *posy = &game->balls[i]->rect.y;
+	float *velx = &game->balls[i]->speed.x;
+	float *vely = &game->balls[i]->speed.y;
 
-		/*	 Pointers to x, y and speed	for ball */
-		int *posx = &game->balls[i]->rect.x;
-		int *posy = &game->balls[i]->rect.y;
-		float *velx = &game->balls[i]->speed.x;
-		float *vely = &game->balls[i]->speed.y;
-
-		/*	 Position balls nearer current cursor location	*/
-		if(*posx != game->cursor.x){
-			*posx = (
-				*posx > game->cursor.x ?
-					*posx - fabs(*velx) :
-					*posx + fabs(*velx)
-			);
-		}
-		if(*posy != game->cursor.y){
-			*posy = (
-				*posy > game->cursor.y ?
-					*posy - fabs(*vely) :
-					*posy + fabs(*vely)
-			);
-		}
+	/*	 Position balls nearer current cursor location	*/
+	if(*posx != game->cursor.x){
+		*posx = (
+			*posx > game->cursor.x ?
+				*posx - fabs(*velx) :
+				*posx + fabs(*velx)
+		);
+	}
+	if(*posy != game->cursor.y){
+		*posy = (
+			*posy > game->cursor.y ?
+				*posy - fabs(*vely) :
+				*posy + fabs(*vely)
+		);
 	}
 }
+
 
 
 float getRandomDirection(void){
@@ -127,63 +128,50 @@ float getRandomDirection(void){
 	}
 }
 
-void accelBalls(ballsGame * game){
-	for(int i = 0; i< MAX_BALLS; i++){
-		/*	 Break if NULL pointer	*/
-		if(!game->balls[i]){
-			break;
-		}
-		/*	 Pointers to speed for ball */
-		float *velx = &game->balls[i]->speed.x;
-		float *vely = &game->balls[i]->speed.y;
+void accelBall(ballsGame * game, int i){
+	/*	 Pointers to speed for ball */
+	float *velx = &game->balls[i]->speed.x;
+	float *vely = &game->balls[i]->speed.y;
 
-		/*	 Accelerate balls!	*/
-		if(fabs(*velx) < MAXSPEED ){
-			*velx = *velx > 0 ? *velx + ACC : *velx - ACC;
-		}
-		if(fabs(*vely) < MAXSPEED ){
-			*vely = *vely > 0 ? *vely + ACC : *vely - ACC;
-		}
+	/*	 Accelerate balls!	*/
+	if(fabs(*velx) < MAXSPEED ){
+		*velx = *velx > 0 ? *velx + ACC : *velx - ACC;
+	}
+	if(fabs(*vely) < MAXSPEED ){
+		*vely = *vely > 0 ? *vely + ACC : *vely - ACC;
 	}
 }
 
-void borderCheck(ballsGame * game){
-	for(int i = 0; i< MAX_BALLS; i++){
-		/*	 Break if NULL pointer	*/
-		if(!game->balls[i]){
-			break;
-		}
+void borderCheck(ballsGame * game, int i){
+	/*	 Pointers to x, y and speed	for ball */
+	float *velx = &game->balls[i]->speed.x;
+	float *vely = &game->balls[i]->speed.y;
+	int *posx = &game->balls[i]->rect.x;
+	int *posy = &game->balls[i]->rect.y;
 
-		/*	 Pointers to x, y and speed	for ball */
-		float *velx = &game->balls[i]->speed.x;
-		float *vely = &game->balls[i]->speed.y;
-		int *posx = &game->balls[i]->rect.x;
-		int *posy = &game->balls[i]->rect.y;
+	/*	 Check game window collision	*/
+	if(*posx + BALL_SIZE/2 >= WIN_WIDTH){
+		*velx *= -1;
+		*posx = WIN_WIDTH - BALL_SIZE;
+	}
 
-		/*	 Check game window collision	*/
-		if(*posx + BALL_SIZE/2 >= WIN_WIDTH){
-			*velx *= -1;
-			*posx = WIN_WIDTH - BALL_SIZE;
-		}
+	if(*posx - BALL_SIZE/2 < 0){
+		*velx *= -1;
+		*posx = BALL_SIZE/2;
+	}
 
-		if(*posx - BALL_SIZE/2 < 0){
-			*velx *= -1;
-			*posx = BALL_SIZE/2;
-		}
+	if(*posy + BALL_SIZE/2 >= WIN_HEIGHT){
+		*vely *= -1;
+		*posy = WIN_HEIGHT - BALL_SIZE;
+	}
 
-		if(*posy + BALL_SIZE/2 >= WIN_HEIGHT){
-			*vely *= -1;
-			*posy = WIN_HEIGHT - BALL_SIZE;
-		}
-
-		if(*posy - BALL_SIZE/2 < 0){
-			*vely *= -1;
-			*posy = BALL_SIZE/2;
-		}
+	if(*posy - BALL_SIZE/2 < 0){
+		*vely *= -1;
+		*posy = BALL_SIZE/2;
 	}
 }
 
-void rotateBalls(ballsGame * game){
+void rotateBall(ballsGame * game, int i){
 	game->balls[i]->angle += 1.6f;
 
 	if(game->balls[i]->angle >= 360){
@@ -192,23 +180,15 @@ void rotateBalls(ballsGame * game){
 }
 
 
-void moveBalls(ballsGame * game){
-	/*	 Move balls	*/
-	for(int i = 0; i< MAX_BALLS; i++){
-		/*	 Break if NULL pointer	*/
-		if(!game->balls[i]){
-			break;
-		}
+void moveBall(ballsGame * game, int i){
+	/*	 Pointers to x, y and speed	for ball */
+	float *velx = &game->balls[i]->speed.x;
+	float *vely = &game->balls[i]->speed.y;
+	int *posx = &game->balls[i]->rect.x;
+	int *posy = &game->balls[i]->rect.y;
 
-		/*	 Pointers to x, y and speed	for ball */
-		float *velx = &game->balls[i]->speed.x;
-		float *vely = &game->balls[i]->speed.y;
-		int *posx = &game->balls[i]->rect.x;
-		int *posy = &game->balls[i]->rect.y;
-
-		/*	 Move balls in x and y	*/
-		*posx += *velx;
-		*posy += *vely;
-		}
-	}
+	/*	 Move balls in x and y	*/
+	*posx += *velx;
+	*posy += *vely;
 }
+

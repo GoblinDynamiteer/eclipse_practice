@@ -74,13 +74,13 @@ bool loadGame(ballsGame * game);
 
 /*	 event.c	*/
 bool processEvent(ballsGame * game);
-void moveBalls(ballsGame * game);
-void rotateBalls(ballsGame * game);
-void accelBalls(ballsGame * game);
+void moveBall(ballsGame * game, int i);
+void rotateBall(ballsGame * game, int i);
+void accelBall(ballsGame * game, int i);
 float getRandomDirection(void);
 bool addBall(ballsGame * game, int x, int y);
-void huntCursor(ballsGame * game);
-void borderCheck(ballsGame * game);
+void huntCursor(ballsGame * game, int i);
+void borderCheck(ballsGame * game, int i);
 
 /*	 draw.c	*/
 bool renderGame(ballsGame * game);
