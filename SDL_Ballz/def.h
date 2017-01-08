@@ -35,6 +35,8 @@
 /*	 Ball movement speed & acceleration	*/
 #define MAXSPEED 15.0
 #define ACC 0.001
+#define MAGSTR 500
+#define REPELSTR 500
 
 /*	 Game modes // Cursors	*/
 enum {NORMAL, MAGNET};
