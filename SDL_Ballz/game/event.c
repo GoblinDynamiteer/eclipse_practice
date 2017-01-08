@@ -22,7 +22,8 @@ bool processEvent(ballsGame * game){
 				break;
 			/*	 A mouse button has been pressed	*/
 			case SDL_MOUSEBUTTONDOWN:
-				if(event.button.button == SDL_BUTTON_LEFT){
+				if(event.button.button == SDL_BUTTON_LEFT &&
+						game->mode == NORMAL){
 					int x, y;
 					SDL_GetMouseState(&x, &y);
 					addBall(game, x, y);
