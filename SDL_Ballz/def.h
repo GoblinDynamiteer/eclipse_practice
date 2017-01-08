@@ -61,6 +61,7 @@ typedef struct ballsGame{
 	ball * balls[MAX_BALLS];
 	SDL_Texture * cursorArt;
 	position cursor;
+	/*	 Flexible struct member needs to be last.	*/
 	SDL_Texture * ballArt[];
 }ballsGame;
 
