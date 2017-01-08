@@ -58,11 +58,14 @@ void renderCursor(ballsGame * game){
 	cursorRect.y = game->cursor.y - cursorRect.h / 2;
 
 
-	SDL_RenderCopy(
+	SDL_RenderCopyEx(
 		game->renderer,
 		game->cursorArt,
 		NULL,
-		&cursorRect
+		&cursorRect,
+		game->cursorAngle,
+		NULL,
+		SDL_FLIP_NONE
 	);
 }
 

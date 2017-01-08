@@ -28,6 +28,14 @@ bool processEvent(ballsGame * game){
 					addBall(game, x, y);
 				}
 				break;
+			case SDL_MOUSEWHEEL:
+				if(event.wheel.y < 0){
+					game->cursorAngle += 4.0;
+				}
+				else if(event.wheel.y > 0){
+					game->cursorAngle -= 4.0;
+				}
+				break;
 		}
 	}
 

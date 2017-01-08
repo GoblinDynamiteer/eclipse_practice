@@ -43,5 +43,7 @@ bool loadGame(ballsGame * game){
 	/*	 Free surfaces	*/
 	SDL_FreeSurface(surface);
 
+	game->cursorAngle = 0.0;
+
 	return 1;
 }
