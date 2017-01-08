@@ -60,6 +60,7 @@ typedef struct ballsGame{
 	SDL_Renderer * renderer;
 	ball * balls[MAX_BALLS];
 	SDL_Texture * cursorArt;
+	position cursor;
 	SDL_Texture * ballArt[];
 }ballsGame;
 
