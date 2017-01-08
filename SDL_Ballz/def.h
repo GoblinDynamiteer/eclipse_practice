@@ -27,7 +27,7 @@
 #define REN_FLAGS SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
 
 /*	 Max balls on screen	*/
-#define MAX_BALLS 500
+#define MAX_BALLS 1000
 
 /*	 Ball art size. Height == Width	*/
 #define BALL_SIZE 50
