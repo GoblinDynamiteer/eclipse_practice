@@ -44,8 +44,11 @@ bool processEvent(ballsGame * game){
 
 
 	/*	 Moves and rotate balls	*/
-	moveBalls(game);
-
+	//moveBalls(game);
+	rotateBalls(game);
+	accelBalls(game);
+	borderCheck(game);
+	huntCursor(game);
 
 	return 1;
 }
