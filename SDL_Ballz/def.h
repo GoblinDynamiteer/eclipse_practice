@@ -33,8 +33,8 @@
 #define BALL_SIZE 50
 
 /*	 Ball movement speed & acceleration	*/
-#define MAXSPEED 8
-#define ACC 0.04
+#define MAXSPEED 15.0
+#define ACC 0.001
 
 /*	 Ball colors, for texture array index	*/
 enum {RED, YELLOW, BLUE, GREEN, PURPLE};
