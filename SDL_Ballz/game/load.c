@@ -19,7 +19,8 @@ bool loadGame(ballsGame * game){
 	};
 
 
-	//RED, YELLOW, BLUE, GREEN, PURPLE
+	/*	 Loads the ball texture	*/
+	/*	index: RED, YELLOW, BLUE, GREEN, PURPLE */
 	char * imageFiles[] = {
 			"art/ball_red.png",
 			"art/ball_yellow.png",

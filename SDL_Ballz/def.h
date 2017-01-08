@@ -36,7 +36,7 @@
 #define MAXSPEED 15.0
 #define ACC 0.001
 
-/*	 Game modes	*/
+/*	 Game modes // Cursors	*/
 enum {NORMAL, MAGNET};
 
 /*	 Ball colors, for texture array index	*/
