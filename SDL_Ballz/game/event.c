@@ -107,15 +107,15 @@ void huntCursor(ballsGame * game, int i){
 	if(*posx != game->cursor.x){
 		*posx = (
 			*posx > game->cursor.x ?
-				*posx - fabs(*velx) :
-				*posx + fabs(*velx)
+				*posx - fabs(*velx) * 2 :
+				*posx + fabs(*velx) * 2
 		);
 	}
 	if(*posy != game->cursor.y){
 		*posy = (
 			*posy > game->cursor.y ?
-				*posy - fabs(*vely) :
-				*posy + fabs(*vely)
+				*posy - fabs(*vely) * 2 :
+				*posy + fabs(*vely) * 2
 		);
 	}
 }
