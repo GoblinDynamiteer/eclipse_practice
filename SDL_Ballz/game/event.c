@@ -65,6 +65,14 @@ bool processEvent(ballsGame * game){
 	return 1;
 }
 
+/*	 Uses distance formula	*/
+double calculateDistance(int x1, int x2, int y1, int y2){
+	 double calc =
+		sqrt(
+		pow((float)x1 - (float)x2, 2) +
+		pow((float)y1 - (float)y2, 2)
+	);
+	return calc;
 }
 
 /*	 Generates a random direction (and speed) for new balls	*/
