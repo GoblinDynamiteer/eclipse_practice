@@ -77,6 +77,7 @@ bool processEvent(ballsGame * game);
 void moveBalls(ballsGame * game);
 float getRandomDirection(void);
 bool addBall(ballsGame * game, int x, int y);
+void huntCursor(ballsGame * game);
 
 /*	 draw.c	*/
 bool renderGame(ballsGame * game);

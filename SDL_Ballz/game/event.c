@@ -81,6 +81,37 @@ bool addBall(ballsGame * game, int x, int y){
 	return 1;
 }
 
+void huntCursor(ballsGame * game){
+	for(int i = 0; i< MAX_BALLS; i++){
+		/*	 Break if NULL pointer	*/
+		if(!game->balls[i]){
+			break;
+		}
+
+		/*	 Pointers to x, y and speed	for ball */
+		int *posx = &game->balls[i]->rect.x;
+		int *posy = &game->balls[i]->rect.y;
+		float *velx = &game->balls[i]->speed.x;
+		float *vely = &game->balls[i]->speed.y;
+
+		/*	 Position balls nearer current cursor location	*/
+		if(*posx != game->cursor.x){
+			*posx = (
+				*posx > game->cursor.x ?
+					*posx - fabs(*velx) :
+					*posx + fabs(*velx)
+			);
+		}
+		if(*posy != game->cursor.y){
+			*posy = (
+				*posy > game->cursor.y ?
+					*posy - fabs(*vely) :
+					*posy + fabs(*vely)
+			);
+		}
+	}
+}
+
 
 float getRandomDirection(void){
 	int negPos = rand() % 10;
