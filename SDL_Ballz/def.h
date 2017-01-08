@@ -80,14 +80,18 @@ bool loadGame(ballsGame * game);
 
 /*	 event.c	*/
 bool processEvent(ballsGame * game);
+float getRandomDirection(void);
+void cycleGameMode(ballsGame * game, bool upDown);
+double calculateDistance(int x1, int x2, int y1, int y2);
+
+/*	 balls.c	*/
+bool addBall(ballsGame * game, int x, int y);
 void moveBall(ballsGame * game, int i);
 void rotateBall(ballsGame * game, int i);
 void accelBall(ballsGame * game, int i);
-float getRandomDirection(void);
-bool addBall(ballsGame * game, int x, int y);
-void huntCursor(ballsGame * game, int i);
 void borderCheck(ballsGame * game, int i);
-void cycleGameMode(ballsGame * game, bool upDown);
+void huntCursor(ballsGame * game, int i);
+void avoidCursor(ballsGame * game, int i);
 
 /*	 draw.c	*/
 bool renderGame(ballsGame * game);
