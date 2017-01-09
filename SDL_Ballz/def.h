@@ -113,6 +113,7 @@ void killBalls(ballsGame * game, int i);
 bool renderGame(ballsGame * game);
 void renderCursor(ballsGame * game);
 void renderBalls(ballsGame * game);
+void drawText(ballsGame * game, char * text, int pos);
 
 
 #endif /* DEF_H_ */
