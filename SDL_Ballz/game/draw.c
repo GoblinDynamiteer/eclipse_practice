@@ -16,11 +16,32 @@ bool renderGame(ballsGame * game){
 	renderBalls(game);
 	renderCursor(game);
 
+	/*	 Display text	*/
+	char displayText[80];
+	sprintf(displayText, "Balls: %d", game->ballIndex);
+	drawText(game, displayText, 0);
+	sprintf(displayText, "Killed balls: %d", game->killedBalls);
+	drawText(game, displayText, 1);
+
 	/*	 Presents render	*/
 	SDL_RenderPresent(game->renderer);
 	return 1;
 }
 
+/*	 Draw text	*/
+void drawText(ballsGame * game, char * text, int pos){
+	SDL_Surface *textSurface;
+	SDL_Color color = {0,0,0};
+	textSurface = TTF_RenderText_Solid(
+		game->font, text, color
+	);
+	SDL_Texture * textTexture = SDL_CreateTextureFromSurface(
+		game->renderer, textSurface
+	);
+	SDL_Rect textRect = {10, FONT_SIZE * pos + 2, 0, 0};
+	SDL_QueryTexture(textTexture, NULL, NULL, &textRect.w, &textRect.h);
+	SDL_RenderCopy(game->renderer, textTexture, NULL, &textRect);
+}
 
 void renderBalls(ballsGame * game){
 	/*	 Draws balls	*/

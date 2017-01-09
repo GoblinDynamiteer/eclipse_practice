@@ -17,6 +17,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
+#include "SDL_ttf.h"
 
 /*	 Window dimensions, FULL HD!	*/
 #define WIN_WIDTH 1920
@@ -37,6 +38,10 @@
 #define ACC 0.001
 #define MAGSTR 500
 #define REPELSTR 500
+
+/*	 Font stuff	*/
+#define FONT_SIZE 28
+
 
 /*	 Game modes // Cursors	*/
 enum {NORMAL, MAGNET, REPEL};
@@ -68,6 +73,9 @@ typedef struct ballsGame{
 	position cursor;
 	double cursorAngle;
 	short mode;
+	TTF_Font *font;
+	int ballIndex;
+	int killedBalls;
 	/*	 Flexible struct member needs to be last.	*/
 	SDL_Texture * ballArt[];
 }ballsGame;

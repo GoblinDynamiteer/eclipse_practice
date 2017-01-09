@@ -12,6 +12,8 @@ int main(int argc, char *argv[]){
 	/*	 Init SDL	*/
     SDL_Init(SDL_INIT_EVERYTHING);
 
+    TTF_Init();
+
     /*	 Hide cursor	*/
     SDL_ShowCursor(SDL_DISABLE);
 
