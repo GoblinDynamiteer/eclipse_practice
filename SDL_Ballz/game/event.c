@@ -26,7 +26,10 @@ bool processEvent(ballsGame * game){
 						game->mode == NORMAL){
 					int x, y;
 					SDL_GetMouseState(&x, &y);
-					addBall(game, x, y);
+					for(int i = 0; i< BALLS_PER_SPRAY; i++){
+						addBall(game, x, y);
+					};
+
 				}
 				break;
 			case SDL_MOUSEWHEEL:

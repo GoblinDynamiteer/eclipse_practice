@@ -30,6 +30,9 @@
 /*	 Max balls on screen	*/
 #define MAX_BALLS 5000
 
+/*	 Balls per "tick" of spray (right button)	*/
+#define BALLS_PER_SPRAY 10
+
 /*	 Ball art size. Height == Width	*/
 #define BALL_SIZE 50
 
