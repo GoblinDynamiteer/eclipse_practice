@@ -62,5 +62,7 @@ bool loadGame(ballsGame * game){
 
 	game->killedBalls = 0;
 
+	game->font = TTF_OpenFont("font/joystix_monospace.ttf", FONT_SIZE);
+
 	return 1;
 }
