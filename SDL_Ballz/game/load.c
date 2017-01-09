@@ -43,12 +43,14 @@ bool loadGame(ballsGame * game){
 	char * imageFilesCursor[] = {
 			"art/cursor.png",
 			"art/cursor_magnet.png",
-			"art/cursor_rep.png"
+			"art/cursor_rep.png",
+			"art/cursor_blade.png"
 	};
 
-	for(int i = 0; i<= REPEL; i++){
+	for(int i = 0; i<= BLADE; i++){
 		surface = IMG_Load(imageFilesCursor[i]);
-		game->cursorArt[i] = SDL_CreateTextureFromSurface(game->renderer, surface);
+		game->cursorArt[i] = SDL_CreateTextureFromSurface(
+				game->renderer, surface);
 	}
 
 	/*	 Free surfaces	*/
@@ -56,6 +58,9 @@ bool loadGame(ballsGame * game){
 
 	game->cursorAngle = 0.0;
 	game->mode = NORMAL;
+	game->ballIndex = 0;
+
+	game->killedBalls = 0;
 
 	return 1;
 }

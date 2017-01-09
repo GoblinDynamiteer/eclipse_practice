@@ -52,6 +52,10 @@ bool processEvent(ballsGame * game){
 		if(!game->balls[i]){
 			break;
 		}
+		/*	 Skip if ball is inactive	*/
+		if(!game->balls[i]->active){
+			continue;
+		}
 		switch(game->mode){
 			case NORMAL:
 				moveBall(game, i);
@@ -62,10 +66,14 @@ bool processEvent(ballsGame * game){
 			case REPEL:
 				avoidCursor(game, i);
 				break;
+			case BLADE:
+				killBalls(game, i);
+				break;
 		}
 		rotateBall(game, i);
 		accelBall(game, i);
 		borderCheck(game, i);
+		game->ballIndex = i;
 	}
 
 	return 1;
@@ -94,16 +102,17 @@ float getRandomDirection(void){
 	}
 }
 
+
 void cycleGameMode(ballsGame * game, bool upDown){
 	if(upDown){
-		if(game->mode == REPEL){
+		if(game->mode == BLADE){
 			game->mode = NORMAL;
 		}
 		else game->mode++;
 	}
 	else{
 		if(game->mode == NORMAL){
-			game->mode = REPEL;
+			game->mode = BLADE;
 		}
 		else game->mode--;
 	}

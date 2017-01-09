@@ -38,6 +38,10 @@ bool addBall(ballsGame * game, int x, int y){
 	return 1;
 }
 
+void destroyBall(ballsGame * game, int i){
+	game->balls[i]->active = 0;
+}
+
 void accelBall(ballsGame * game, int i){
 	/*	 Pointers to speed for ball */
 	float *velx = &game->balls[i]->speed.x;
@@ -168,3 +172,27 @@ void avoidCursor(ballsGame * game, int i){
 		moveBall(game, i);
 	}
 }
+
+
+void killBalls(ballsGame * game, int i){
+	/*	 Pointers to x, y and speed	for ball */
+	int *posx = &game->balls[i]->rect.x;
+	int *posy = &game->balls[i]->rect.y;
+
+	/*	 Kill balls near cursor	*/
+	/*	 Calculate distance	*/
+	double distance =
+			calculateDistance(
+					*posx, game->cursor.x,
+					*posy, game->cursor.y
+				);
+
+	if(distance < KILLSIZE){
+		destroyBall(game, i);
+		game->killedBalls++;
+	}
+	else{
+		moveBall(game, i);
+	}
+}
+

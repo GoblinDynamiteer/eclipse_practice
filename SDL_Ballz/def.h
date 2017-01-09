@@ -28,7 +28,7 @@
 #define REN_FLAGS SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
 
 /*	 Max balls on screen	*/
-#define MAX_BALLS 1000
+#define MAX_BALLS 5000
 
 /*	 Ball art size. Height == Width	*/
 #define BALL_SIZE 50
@@ -38,10 +38,15 @@
 #define ACC 0.001
 #define MAGSTR 500
 #define REPELSTR 500
+#define KILLSIZE 45
 
 /*	 Font stuff	*/
 #define FONT_SIZE 28
 
+/*	 Cursor stuff	*/
+/*	 Blade mode rotation	*/
+#define BLADE_SPEED 10.5
+#define MAX_TYPES 10
 
 /*	 Game modes // Cursors	*/
 enum {NORMAL, MAGNET, REPEL, BLADE};
@@ -60,6 +65,7 @@ typedef struct pos{
 
 typedef struct ball{
 	short color;
+	bool active;
 	SDL_Rect rect;
 	velocity speed;
 	double angle;
@@ -69,7 +75,7 @@ typedef struct ballsGame{
 	SDL_Window * window;
 	SDL_Renderer * renderer;
 	ball * balls[MAX_BALLS];
-	SDL_Texture * cursorArt[3];
+	SDL_Texture * cursorArt[MAX_TYPES];
 	position cursor;
 	double cursorAngle;
 	short mode;
@@ -100,6 +106,8 @@ void accelBall(ballsGame * game, int i);
 void borderCheck(ballsGame * game, int i);
 void huntCursor(ballsGame * game, int i);
 void avoidCursor(ballsGame * game, int i);
+void destroyBall(ballsGame * game, int i);
+void killBalls(ballsGame * game, int i);
 
 /*	 draw.c	*/
 bool renderGame(ballsGame * game);

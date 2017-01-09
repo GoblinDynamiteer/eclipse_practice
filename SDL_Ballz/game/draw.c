@@ -49,6 +49,9 @@ void renderBalls(ballsGame * game){
 		if(!game->balls[i]){
 			break;
 		}
+		if(!game->balls[i]->active){
+			continue;
+		}
 		short color = game->balls[i]->color;
 		SDL_RenderCopyEx(
 			game->renderer,
@@ -78,6 +81,13 @@ void renderCursor(ballsGame * game){
 	cursorRect.x = game->cursor.x - cursorRect.w / 2;
 	cursorRect.y = game->cursor.y - cursorRect.h / 2;
 
+	if(game->mode == BLADE){
+		game->cursorAngle += BLADE_SPEED;
+	}
+
+	else{
+		game->cursorAngle = 0.0;
+	}
 
 	SDL_RenderCopyEx(
 		game->renderer,
