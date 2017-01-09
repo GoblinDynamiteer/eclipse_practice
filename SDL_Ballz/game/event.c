@@ -26,10 +26,7 @@ bool processEvent(ballsGame * game){
 						game->mode == NORMAL){
 					int x, y;
 					SDL_GetMouseState(&x, &y);
-					for(int i = 0; i< BALLS_PER_SPRAY; i++){
-						addBall(game, x, y);
-					};
-
+					addBall(game, x, y);
 				}
 				break;
 			case SDL_MOUSEWHEEL:
@@ -46,7 +43,9 @@ bool processEvent(ballsGame * game){
 	/*	 Gets mouse cursor position	*/
 	Uint32 mouseState = SDL_GetMouseState(&game->cursor.x, &game->cursor.y);
 	if(mouseState & SDL_BUTTON(SDL_BUTTON_RIGHT)){
-		addBall(game, game->cursor.x, game->cursor.y);
+		for(int i = 0; i< BALLS_PER_SPRAY; i++){
+			addBall(game, game->cursor.x, game->cursor.y);
+		}
 	}
 
 	/*	 Moves and rotate balls	*/
