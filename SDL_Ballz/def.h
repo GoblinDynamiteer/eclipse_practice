@@ -14,9 +14,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+
 #include "SDL.h"
 #include "SDL_image.h"
-
 #include "SDL_ttf.h"
 
 /*	 Window dimensions, FULL HD!	*/
@@ -87,6 +87,7 @@ typedef struct ballsGame{
 	int killedBalls;
 	/*	 Flexible struct member needs to be last.	*/
 	SDL_Texture * ballArt[];
+
 }ballsGame;
 
 

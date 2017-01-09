@@ -5,7 +5,6 @@
  *      Author: kampe_000
  */
 
-
 #include "def.h"
 
 int main(int argc, char *argv[]){
@@ -53,7 +52,6 @@ int main(int argc, char *argv[]){
     	}
     	SDL_Delay(1000/60);
     }
-
 
     /*	 Quit SDL	*/
     SDL_DestroyWindow(window);
