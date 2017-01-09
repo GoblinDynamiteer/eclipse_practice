@@ -44,10 +44,10 @@
 
 
 /*	 Game modes // Cursors	*/
-enum {NORMAL, MAGNET, REPEL};
+enum {NORMAL, MAGNET, REPEL, BLADE};
 
 /*	 Ball colors, for texture array index	*/
-enum {RED, YELLOW, BLUE, GREEN, PURPLE};
+enum {RED, YELLOW, BLUE, GREEN, SMILEY, PURPLE};
 
 /*	 Struct definitions	*/
 typedef struct velocity{

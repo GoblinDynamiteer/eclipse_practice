@@ -20,21 +20,22 @@ bool loadGame(ballsGame * game){
 
 
 	/*	 Loads the ball texture	*/
-	/*	index: RED, YELLOW, BLUE, GREEN, PURPLE */
+	/*	index: RED, YELLOW, BLUE, GREEN, SMILEY, PURPLE */
 	char * imageFiles[] = {
 			"art/ball_red.png",
 			"art/ball_yellow.png",
 			"art/ball_blue.png",
 			"art/ball_green.png",
+			"art/ball_smiley.png",
 			"art/ball_purple.png",
 	};
 
-	/*	 Loads the ball texture	*/
-	SDL_Surface * surface;
+	SDL_Surface * surface = NULL;
 
 	for(int i = 0; i<= PURPLE; i++){
 		surface = IMG_Load(imageFiles[i]);
-		game->ballArt[i] = SDL_CreateTextureFromSurface(game->renderer, surface);
+		game->ballArt[i] = SDL_CreateTextureFromSurface(
+				game->renderer, surface);
 	}
 
 	/*	Load cursor texture and set rectangle	*/
