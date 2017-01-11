@@ -57,6 +57,8 @@ enum {NORMAL, MAGNET, REPEL, BLADE};
 /*	 Ball colors, for texture array index	*/
 enum {RED, YELLOW, BLUE, GREEN, SMILEY, PURPLE};
 
+enum {VERTICAL, HORIZONTAL};
+
 /*	 Struct definitions	*/
 typedef struct velocity{
 	float x, y;
@@ -112,6 +114,7 @@ void huntCursor(ballsGame * game, int i);
 void avoidCursor(ballsGame * game, int i);
 void destroyBall(ballsGame * game, int i);
 void killBalls(ballsGame * game, int i);
+void flipBallSpeed(ballsGame * game, int i, bool direction);
 
 /*	 draw.c	*/
 bool renderGame(ballsGame * game);

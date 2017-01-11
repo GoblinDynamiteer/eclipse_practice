@@ -160,6 +160,8 @@ void avoidCursor(ballsGame * game, int i){
 				);
 
 	if(distance < REPELSTR){
+		flipBallSpeed(game, i, HORIZONTAL);
+		flipBallSpeed(game, i, VERTICAL);
 		*posx = (
 			*posx > game->cursor.x ?
 				*posx + fabs(*velx) * 3 :
@@ -196,6 +198,15 @@ void killBalls(ballsGame * game, int i){
 	}
 	else{
 		moveBall(game, i);
+	}
+}
+
+void flipBallSpeed(ballsGame * game, int i, bool direction){
+	if(direction == VERTICAL){
+		game->balls[i]->speed.x *= -1;
+	}
+	else{
+		game->balls[i]->speed.y *= -1;
 	}
 }
 
