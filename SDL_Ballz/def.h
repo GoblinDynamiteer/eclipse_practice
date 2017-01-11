@@ -40,7 +40,7 @@
 #define MAXSPEED 15.0
 #define ACC 0.001
 #define MAGSTR 500
-#define REPELSTR 500
+#define REPELSTR 350
 #define KILLSIZE 45
 
 /*	 Font stuff	*/
@@ -81,6 +81,7 @@ typedef struct ballsGame{
 	SDL_Renderer * renderer;
 	ball * balls[MAX_BALLS];
 	SDL_Texture * cursorArt[MAX_TYPES];
+	SDL_Texture * shield;
 	position cursor;
 	double cursorAngle;
 	short mode;
@@ -121,6 +122,7 @@ bool renderGame(ballsGame * game);
 void renderCursor(ballsGame * game);
 void renderBalls(ballsGame * game);
 void drawText(ballsGame * game, char * text, int pos);
+void drawShield(ballsGame * game);
 
 
 #endif /* DEF_H_ */

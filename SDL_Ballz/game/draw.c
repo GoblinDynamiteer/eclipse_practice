@@ -89,6 +89,10 @@ void renderCursor(ballsGame * game){
 		game->cursorAngle = 0.0;
 	}
 
+	if(game->mode == REPEL){
+		drawShield(game);
+	}
+
 	SDL_RenderCopyEx(
 		game->renderer,
 		game->cursorArt[game->mode],
@@ -98,5 +102,29 @@ void renderCursor(ballsGame * game){
 		NULL,
 		SDL_FLIP_NONE
 	);
+}
+
+void drawShield(ballsGame * game){
+	SDL_Rect shieldRect;
+
+	/*	 Gets width and height from texture	*/
+	SDL_QueryTexture(
+		game->shield,
+		NULL,
+		NULL,
+		&shieldRect.w,
+		&shieldRect.h
+	);
+
+	shieldRect.x = game->cursor.x - shieldRect.w / 2;
+	shieldRect.y = game->cursor.y - shieldRect.h / 2;
+
+	SDL_RenderCopy(
+		game->renderer,
+		game->shield,
+		NULL,
+		&shieldRect
+	);
+
 }
 

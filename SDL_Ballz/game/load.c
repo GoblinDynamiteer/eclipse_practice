@@ -53,6 +53,11 @@ bool loadGame(ballsGame * game){
 				game->renderer, surface);
 	}
 
+	/*	 Load shield bubble	*/
+	surface = IMG_Load("art/cursor_shield.png");
+	game->shield = SDL_CreateTextureFromSurface(
+			game->renderer, surface);
+
 	/*	 Free surfaces	*/
 	SDL_FreeSurface(surface);
 
