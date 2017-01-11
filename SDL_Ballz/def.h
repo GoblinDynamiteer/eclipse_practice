@@ -55,7 +55,7 @@
 enum {NORMAL, MAGNET, REPEL, BLADE};
 
 /*	 Ball colors, for texture array index	*/
-enum {RED, YELLOW, BLUE, GREEN, SMILEY, PURPLE};
+enum {RED, YELLOW, BLUE, GREEN, SMILEY, PURPLE, DEVIL};
 
 enum {VERTICAL, HORIZONTAL};
 

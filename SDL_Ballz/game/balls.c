@@ -32,7 +32,7 @@ bool addBall(ballsGame * game, int x, int y){
 	game->balls[i]->angle = 0.0;
 
 	/*	 Set ball color	*/
-	game->balls[i]->color = rand() % (PURPLE + 1);
+	game->balls[i]->color = rand() % (DEVIL + 1);
 	//game->balls[i]->color = SMILEY;
 
 	/*	 Set ball as active, used to destroy balls */
