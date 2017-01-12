@@ -50,12 +50,11 @@ void accelBall(ballsGame * game, int i){
 	float *velx = &game->balls[i]->speed.x;
 	float *vely = &game->balls[i]->speed.y;
 
-	/*	 Accelerate balls!	*/
-	if(fabs(*velx) < MAXSPEED ){
-		*velx = *velx > 0 ? *velx + ACC : *velx - ACC;
-	}
-	if(fabs(*vely) < MAXSPEED ){
-		*vely = *vely > 0 ? *vely + ACC : *vely - ACC;
+	/*	 Accelerate balls until max speed.	*/
+	if(fabs(*velx) < MAXSPEED
+			&& fabs(*vely) < MAXSPEED ){
+				*velx *= ACC;
+				*velx *= ACC;
 	}
 }
 

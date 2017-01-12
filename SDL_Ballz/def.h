@@ -38,9 +38,12 @@
 
 /*	 Ball movement speed & acceleration	*/
 #define MAXSPEED 15.0
-#define ACC 0.001
+#define ACC 1.005
+
+/*	 Radius for magnet and repel	*/
 #define MAGSTR 500
 #define REPELSTR 350
+
 #define KILLSIZE 45
 
 /*	 Font stuff	*/
