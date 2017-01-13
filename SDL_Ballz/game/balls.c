@@ -15,8 +15,6 @@ bool addBall(ballsGame * game, int x, int y){
 		i++;
 	}
 
-	printf("Ball index: %d\n", i);
-
 	/*	 Set ball x, y, width, height	*/
 	game->balls[i] = malloc(sizeof(ball));
 	game->balls[i]->rect.x = x - (BALL_SIZE / 2);
