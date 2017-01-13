@@ -156,7 +156,7 @@ void avoidCursor(ballsGame * game, int i){
 					*posy, game->cursor.y
 				);
 
-	if(distance < REPELSTR){
+	if(distance < REPEL_RADIUS){
 		flipBallSpeed(game, i, HORIZONTAL);
 		flipBallSpeed(game, i, VERTICAL);
 		*posx = (
