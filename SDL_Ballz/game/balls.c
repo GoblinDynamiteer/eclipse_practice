@@ -109,8 +109,6 @@ void huntCursor(ballsGame * game, int i){
 	/*	 Pointers to x, y and speed	for ball */
 	int *posx = &game->balls[i]->rect.x;
 	int *posy = &game->balls[i]->rect.y;
-	float *velx = &game->balls[i]->speed.x;
-	float *vely = &game->balls[i]->speed.y;
 
 	/*	 Position balls nearer current cursor location	*/
 	/*	 Calculate distance	*/
