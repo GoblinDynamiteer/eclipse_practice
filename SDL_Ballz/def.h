@@ -41,8 +41,9 @@
 #define ACC 1.005
 
 /*	 Radius for magnet and repel	*/
-#define MAGSTR 500
-#define REPELSTR 350
+#define MAG_RADIUS 500
+#define MAGSTR 6.5
+#define REPEL_RADIUS 350
 
 #define KILLSIZE 45
 
