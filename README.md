@@ -13,5 +13,5 @@ Remake of programming excercise from book *C Från Början*.  Checks if a sudoku
 ---
 
 **SDL_Ballz**  
-Playing around with SDL library.   
+Playing around with SDL library.    --  This has been moved to repository ballz.
 ![Ballz](https://raw.githubusercontent.com/GoblinDynamiteer/eclipse_practice/master/SDL_Ballz/img/balls_002.PNG)
