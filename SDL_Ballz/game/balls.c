@@ -54,7 +54,7 @@ void accelBall(ballsGame * game, int i){
 	if(fabs(*velx) < MAXSPEED
 			&& fabs(*vely) < MAXSPEED ){
 				*velx *= ACC;
-				*velx *= ACC;
+				*vely *= ACC;
 	}
 }
 
