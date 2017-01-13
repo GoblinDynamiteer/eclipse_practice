@@ -120,19 +120,21 @@ void huntCursor(ballsGame * game, int i){
 					*posy, game->cursor.y
 				);
 
-	if(distance < MAGSTR){
+	if(distance < MAG_RADIUS){
+		game->balls[i]->speed.x = getRandomDirection();
+		game->balls[i]->speed.y = getRandomDirection();
 		if(*posx != game->cursor.x){
 			*posx = (
 				*posx > game->cursor.x ?
-					*posx - fabs(*velx) * 2 :
-					*posx + fabs(*velx) * 2
+					*posx - MAGSTR :
+					*posx + MAGSTR
 			);
 		}
 		if(*posy != game->cursor.y){
 			*posy = (
 				*posy > game->cursor.y ?
-					*posy - fabs(*vely) * 2 :
-					*posy + fabs(*vely) * 2
+					*posy - MAGSTR :
+					*posy + MAGSTR
 			);
 		}
 	}
